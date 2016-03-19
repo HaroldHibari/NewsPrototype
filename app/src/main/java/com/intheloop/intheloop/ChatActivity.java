@@ -1,10 +1,14 @@
 package com.intheloop.intheloop;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,24 +28,29 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_chat_coord);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(ChatActivity.this);
         mRecyclerView.setLayoutManager(llm);
 
-        ChatMessage cm = new ChatMessage("This is a test messagesage. enter some meaningful text here", "16:50 - 19 March 2016", "Hungry Cat");
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add_message_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ChatActivity.this, AddChatMessage.class);
+                ChatActivity.this.startActivity(i);
+            }
+        });
 
         mMessages = new ArrayList<ChatMessage>();
-        mMessages.add(cm);
-
         mAdapter = new ChatAdapter(mMessages);
-
         mRecyclerView.setAdapter(mAdapter);
 
         getMessages();
-
-
     }
 
     private void getMessages(){
@@ -54,16 +63,12 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
                 .build();
 
         ChatMessagesService  service = retrofit.create(ChatMessagesService.class);
-
         Call<ChatMessages> call = service.getMessages();
-
         call.enqueue(this);
     }
 
     @Override
     public void onResponse(Call<ChatMessages> call, Response<ChatMessages> response) {
-
-        Log.d("GB", "received messages");
 
         ChatMessages messages = response.body();
 
@@ -75,5 +80,6 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
     @Override
     public void onFailure(Call<ChatMessages> call, Throwable t) {
         Toast.makeText(this, "Fail!!", Toast.LENGTH_SHORT);
+//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
     }
 }

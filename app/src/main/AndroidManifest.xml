@@ -19,7 +19,13 @@
         </activity>
         <activity
             android:name=".ChatActivity"
-            android:label="@string/title_activity_chat">
+            android:label="@string/title_activity_chat"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".AddChatMessage"
+            android:label="@string/title_activity_add_chat_message"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

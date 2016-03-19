@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">InTheLoop</string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_add_chat_message">AddChatMessage</string>
 </resources>
