@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         Pusher pusher = new Pusher("740d0f36323febd6a8c3");
 
-        Log.d("GB", "starting up...");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setTitle("In The Loop");
 
         Channel channel = pusher.subscribe("chat");
 
