@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.pusher.client.Pusher;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         pusher.connect();
 
 
-        Button chat = (Button)findViewById(R.id.chat);
+        ImageButton chat = (ImageButton)findViewById(R.id.chat);
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, ChatActivity.class);
                 MainActivity.this.startActivity(i);
 
+            }
+        });
 
+        final ImageButton like = (ImageButton)findViewById(R.id.like);
+
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                like.setBackgroundResource(R.drawable.heart_checked);
             }
         });
 

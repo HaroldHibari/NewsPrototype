@@ -37,6 +37,9 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setTitle("Messages");
+
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(ChatActivity.this);
         mRecyclerView.setLayoutManager(llm);

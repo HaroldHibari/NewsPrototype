@@ -1,6 +1,5 @@
 package com.intheloop.intheloop;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +24,8 @@ public class AddChatMessage extends AppCompatActivity implements Callback<HttpBi
         setContentView(R.layout.activity_add_chat_message);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setTitle("Add New Message");
 
         mMessageBody = (EditText)findViewById(R.id.new_message_text);
 
@@ -57,12 +58,15 @@ public class AddChatMessage extends AppCompatActivity implements Callback<HttpBi
     @Override
     public void onResponse(Call<HttpBinResponse> call, Response<HttpBinResponse> response) {
         Toast.makeText(this, "Message posted!", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(AddChatMessage.this, ChatActivity.class);
-        startActivity(i);
+//        Intent i = new Intent(AddChatMessage.this, ChatActivity.class);
+//        startActivity(i);
+        finish();
     }
 
     @Override
     public void onFailure(Call<HttpBinResponse> call, Throwable t) {
-        Toast.makeText(this, "Error :-(", Toast.LENGTH_SHORT).show();
+
+        finish();
+        //Toast.makeText(this, "Error :-(", Toast.LENGTH_SHORT).show();
     }
 }
