@@ -31,4 +31,6 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9' // for our HTTP requests later
     compile 'com.google.code.gson:gson:2.2.4' // for parsing JSON
     compile 'com.squareup.picasso:picasso:2.1.1' // for image rendering
+    compile 'com.android.support:cardview-v7:23.0.+'
+    compile 'com.android.support:recyclerview-v7:23.0.+'
 }
