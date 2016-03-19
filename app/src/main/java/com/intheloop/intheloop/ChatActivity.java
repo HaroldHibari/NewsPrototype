@@ -11,6 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.pusher.client.Pusher;
+import com.pusher.client.channel.Channel;
+import com.pusher.client.channel.SubscriptionEventListener;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -46,6 +50,8 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
             }
         });
 
+        setupPusher();
+
         mMessages = new ArrayList<ChatMessage>();
         mAdapter = new ChatAdapter(mMessages);
         mRecyclerView.setAdapter(mAdapter);
@@ -65,6 +71,21 @@ public class ChatActivity extends AppCompatActivity implements Callback<ChatMess
         ChatMessagesService  service = retrofit.create(ChatMessagesService.class);
         Call<ChatMessages> call = service.getMessages();
         call.enqueue(this);
+    }
+
+    private void setupPusher(){
+        Pusher pusher = new Pusher("740d0f36323febd6a8c3");
+
+        Channel channel = pusher.subscribe("chat");
+
+        channel.bind("new_comment", new SubscriptionEventListener() {
+            @Override
+            public void onEvent(String channelName, String eventName, final String data) {
+                getMessages();
+            }
+        });
+
+        pusher.connect();
     }
 
     @Override
