@@ -12,9 +12,6 @@
     tools:context="com.intheloop.intheloop.MainActivity">
 
 
-
-
-
     <android.support.v7.widget.CardView
         android:layout_margin="1dp"
         android:layout_width="match_parent"
@@ -33,103 +30,7 @@
             <ImageView
                 android:src="@drawable/queen"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:padding="8dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textSize="30dp"
-                android:text="Headline goes here"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textSize="20dp"
-                android:text="Summary of the article will go here. Some text from the first paragraph."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_margin="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        card_view:cardElevation="2dp"
-        card_view:cardCornerRadius="5dp"
-        >
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-            <ImageView
-                android:src="@drawable/queen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:padding="8dp"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textSize="30dp"
-                    android:text="Headline goes here"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:textSize="20dp"
-                    android:text="Summary of the article will go here. Some text from the first paragraph."
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_margin="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        card_view:cardElevation="2dp"
-        card_view:cardCornerRadius="5dp"
-        >
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-            <ImageView
-                android:src="@drawable/queen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="200sp"/>
 
             <LinearLayout
                 android:padding="8dp"
@@ -149,8 +50,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+
             </LinearLayout>
 
+            <Button
+                android:id="@+id/chat"
+                android:text="Chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
