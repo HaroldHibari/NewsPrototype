@@ -10,7 +10,7 @@ import retrofit2.http.POST;
  */
 public interface ChatMessagesService {
 
-    @GET("messages")
+    @GET("messages/56eddbf18cc0a3e958f03ad1")
     Call<ChatMessages> getMessages();
 
     @POST("messages/create")

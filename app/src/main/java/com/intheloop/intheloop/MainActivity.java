@@ -13,7 +13,6 @@ import com.pusher.client.channel.SubscriptionEventListener;
 
 import java.util.ArrayList;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,14 +29,14 @@ public class MainActivity extends AppCompatActivity implements Callback<Articles
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.arv);
+        mRecyclerView = (RecyclerView) findViewById(R.id.arv);
         LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
         mRecyclerView.setLayoutManager(llm);
 
         setupPusher();
 
         mArticles = new ArrayList<Article>();
-        mAdapter = new ArticleAdapter(mArticles,this.getBaseContext());
+        mAdapter = new ArticleAdapter(mArticles, this.getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
 
         getArticles();
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Articles
 
     private void getArticles() {
 
-        Log.d("GB","trying to get articles");
+        Log.d("GB", "trying to get articles");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://46.101.2.116:3000/")
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Articles
         call.enqueue(this);
     }
 
-    private void setupPusher(){
+    private void setupPusher() {
         Pusher pusher = new Pusher("740d0f36323febd6a8c3");
 
         Channel channel = pusher.subscribe("chat");
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Articles
 
         Articles articles = response.body();
 
-        mAdapter = new ArticleAdapter(articles.getArticles(),this.getBaseContext());
+        mAdapter = new ArticleAdapter(articles.getArticles(), this.getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
     }
 
