@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ChatMessages {
 
     @SerializedName("messages")
-    ArrayList<ChatMessage> mChatMessages;
+    ArrayList<ChatMessage> mChatMessages = new ArrayList<ChatMessage>();
 
     public ChatMessages(ArrayList<ChatMessage> chatMessages) {
         mChatMessages = chatMessages;

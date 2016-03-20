@@ -13,7 +13,11 @@ public class ChatMessage {
     @SerializedName("user_id")
     private String mUser;
 
+    @SerializedName("article_id")
+    private String mArticleId;
+
     public ChatMessage(String message, String date, String user) {
+        mArticleId = "56eddbf18cc0a3e958f03ad1";
         mMessage = message;
         mDate = date;
         mUser = user;
